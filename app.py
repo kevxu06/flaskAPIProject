@@ -13,10 +13,6 @@ app.config["SQLALCHEMY_TRACK_NOTIFICATIONS"] = False
 api = Api(app)
 app.secret_key = 'secret'
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 jwt = JWT(app, authenticate, identity)
 
 items = []
